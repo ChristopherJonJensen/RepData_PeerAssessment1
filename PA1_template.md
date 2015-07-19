@@ -1,7 +1,7 @@
 ---
 title: "Reproducible Research (Jensen - 2015)"
 author: "Christopher Jensen"
-date: "Saturday, June 13, 2015"
+date: "Sunday, July 19, 2015"
 output: html_document
 ---
 
@@ -10,9 +10,9 @@ Coursera *Reproducible Research* - Peer Assessment #1
 
 ## Loading and preprocessing the data
 
-First, load the data into memory. As per [Dr. Peng's guidelines](https://github.com/ChristopherJonJensen/RepData_PeerAssessment1/blob/master/README.md), the data is not being downloaded in code, as it is included in the assignment's GitHub repo.
+First, load the data into memory. As per [Dr. Peng's guidelines](https://github.com/ChristopherJonJensen/RepData_PeerAssessment1/blob/master/README.md), the data is not being downloaded in code, as it is included in the assignment's GitHub repo. I am hiding the output, as it provides no relevant information.
 
-I am hiding the output, as it provides no relevant information.
+An aside to anyone performing a peer assessment: this is my second time taking this course (as I had to drop due to time constraints last month), so you may notice that some of the files / folders were created a month ago and that there have not been many changes since my initial submission in mid-June. I assure you that this is indeed my original work, it's just that I completed this assignment before dropping.
 
 
 ```r
@@ -32,15 +32,16 @@ activity_data <- as.data.frame(temp_data)
 ```
 
 ## What is mean total number of steps taken per day?
-First, calculate and plot a histogram of the **total** steps taken per day, then report on the median and mean values of this summary data. As per assignment guidelines, NA values have been ignored. 
+First, calculate and plot a histogram of the **total** steps taken per day, then report on the median and mean values of this summary data. I have specified 15 breaks, as the histogram defaulted to 5, which did not provide much information. As per assignment guidelines, NA values have been ignored. 
 
-To do so, I employ dplyr's ***summarize*** function to determine the sum of total steps, grouped by day.
+To do this calculation, I employ dplyr's ***summarize*** function to determine the sum of total steps, grouped by day.
 
 
 ```r
 temp <- summarize(group_by(activity_data, date), sum(steps, na.rm = TRUE))
 names(temp) <- c("date", "sum")
-hist(temp$sum, main = "Histogram - Total Steps Per Day", xlab = "Total Steps")
+hist(temp$sum, main = "Histogram - Total Steps Per Day", xlab = "Total Steps", 
+    breaks = 15)
 ```
 
 ![plot of chunk calculate_sums](figure/calculate_sums-1.png) 
@@ -134,8 +135,8 @@ imputed <- summarize(group_by(imputed_data, date), sum(steps, na.rm = FALSE))
 names(original) <- c("date", "sum")
 names(imputed) <- c("date", "sum")
 par(mfrow = c(1, 2))
-hist(imputed$sum, main = "Sum of Steps (Imputed)", xlab = "Total Steps")
-hist(original$sum, main = "Sum of Steps (NA rm.)", xlab = "Total Steps")
+hist(imputed$sum, main = "Sum of Steps (Imputed)", xlab = "Total Steps", breaks = 15)
+hist(original$sum, main = "Sum of Steps (NA rm.)", xlab = "Total Steps", breaks = 15)
 ```
 
 ![plot of chunk calculate_imputed_sums](figure/calculate_imputed_sums-1.png) 
