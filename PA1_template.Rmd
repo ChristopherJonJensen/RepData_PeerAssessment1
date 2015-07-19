@@ -16,11 +16,10 @@ An aside to anyone performing a peer assessment: this is my second time taking t
 
 ``` {r data_loader, cache=TRUE, results='hide', tidy=TRUE}
 #Load the data into memory
-temp_data <- read.csv("activity.csv")
+temp_data <- read.csv(unz("repdata_data_activity.zip", "activity.csv"))
 
 #transform the date/time fields into R date/time objects, for ease of use
 temp_data$date <- as.POSIXct(temp_data$date)
-# activity_data$interval <- hm(paste(activity_data$interval%/%100,":",activity_data$interval%%100, sep = ""))
 
 #use a data-frame (as defined in the 'dplyr' package) to make manipulating the data easier)
 library('dplyr')
