@@ -1,7 +1,7 @@
 ---
 title: "Reproducible Research (Jensen - 2015)"
 author: "Christopher Jensen"
-date: "Sunday, July 19, 2015"
+date: "Sunday, August 16, 2015"
 output: html_document
 ---
 
@@ -12,7 +12,7 @@ Coursera *Reproducible Research* - Peer Assessment #1
 
 First, load the data into memory. As per [Dr. Peng's guidelines](https://github.com/ChristopherJonJensen/RepData_PeerAssessment1/blob/master/README.md), the data is not being downloaded in code, as it is included in the assignment's GitHub repo. I am hiding the output, as it provides no relevant information.
 
-An aside to anyone performing a peer assessment: this is my second time taking this course (as I had to drop due to time constraints last month), so you may notice that some of the files / folders were created a month ago and that there have not been many changes since my initial submission in mid-June. I assure you that this is indeed my original work, it's just that I completed this assignment before dropping.
+An aside to anyone performing a peer assessment: this is not my first time taking this course (as I had to drop due to time constraints last month), so you may notice that some of the files / folders were created over a month ago and that there have not been many changes since my initial submission. I assure you that this is indeed my original work, it's just that I completed this assignment before dropping.
 
 
 ```r
